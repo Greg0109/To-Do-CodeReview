@@ -4,7 +4,7 @@ let dragSrcEl;
 function createNewList() {
   const newListElements = document.getElementsByTagName('li');
   const newList = [];
-  for (let i = 0; i < newListElements.length; i += 1) {
+  newListElements.forEach((el, i) => {
     const newItem = {};
     const title = newListElements[i].textContent;
     newItem.description = title;
@@ -17,7 +17,7 @@ function createNewList() {
       newItem.completed = false;
     }
     newList.push(newItem);
-  }
+  });
   localStorageConst.saveList(newList, true);
 }
 
